@@ -2,18 +2,22 @@
 <html>
 <head>
 <title>Mudasir Barber Shop - Begum Kot Shahdara</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body{margin:0;font-family:Arial;background:#111;color:white;text-align:center}
 header{background:#000;padding:20px}
-header h1{color:gold;font-size:40px;margin:0}
+header h1{color:gold;font-size:38px;margin:0}
 header p{color:#ccc}
-.hero{background:gold;color:black;padding:40px 20px}
-.hero h2{font-size:32px}
-.hero button{background:black;color:gold;padding:15px 30px;border:none;font-size:18px;border-radius:10px}
-.box{background:#222;margin:15px;padding:20px;border-radius:15px}
+.hero{background:gold;color:black;padding:30px 20px}
+.hero h2{font-size:30px;margin:10px}
+.box{background:#222;margin:15px;padding:20px;border-radius:15px;text-align:left}
 .price{color:gold;font-size:22px;font-weight:bold}
 .btn{display:inline-block;background:#25D366;color:white;padding:15px 25px;text-decoration:none;border-radius:10px;font-size:18px;margin:10px}
 footer{background:black;padding:20px;color:#aaa}
+img{width:100%;border-radius:15px}
+input,select{width:90%;padding:12px;margin:8px;border-radius:8px;border:none;font-size:16px}
+.book-btn{background:gold;color:black;padding:15px 30px;border:none;font-size:18px;border-radius:10px;font-weight:bold;cursor:pointer;width:90%}
+iframe{width:100%;height:300px;border:0;border-radius:15px}
 </style>
 </head>
 <body>
@@ -23,42 +27,61 @@ footer{background:black;padding:20px;color:#aaa}
 <p>Begum Kot | Shahdara | Lahore</p>
 </header>
 
+<img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800" alt="Saloon">
+
 <div class="hero">
 <h2>Best Hair Cutting & Styling in Shahdara</h2>
 <p>Neat Cutting | Best Service | Munasib Rate</p>
-<button>Abhi Booking Karo</button>
 </div>
 
 <h2>💈 Hamari Services & Rates</h2>
 
 <div class="box">
-<h3>Hair Cutting</h3>
+<h3>✂️ Hair Cutting - Rs. 300</h3>
 <p>Simple Cut + Wash + Styling</p>
-<p class="price">Rs. 200</p>
 </div>
 
 <div class="box">
-<h3>Beard / Shave</h3>
+<h3>🧔 Beard / Shave - Rs. 200</h3>
 <p>Beard Trim + Shave</p>
-<p class="price">Rs. 200</p>
 </div>
 
 <div class="box">
-<h3>Facial + Clean Up</h3>
+<h3>✨ Facial + Clean Up - Rs. 1000</h3>
 <p>Full Facial + Blackheads Clean</p>
-<p class="price">Rs. 1000</p>
 </div>
 
 <div class="box">
-<h3>VIP Package</h3>
+<h3>👑 VIP Package - Rs. 1200 <del style="color:#888">1500</del></h3>
 <p>Hair Cut + Beard + Facial + Head Massage</p>
-<p class="price">Rs. 1500 - Sirf Rs. 1200</p>
 </div>
 
-<h2>📍 Hamara Address</h2>
-<p>Begum Kot 25 no Stop Jumma Bazar near Ayesha Pharmacy , Shahdara, Lahore</p>
-<p>Timing: Subah 10 - Raat 11 Bajay Tak</p>
-<p>7 Din Khula Hai</p>
+<h2>📅 Online Booking Karo</h2>
+<div class="box" style="text-align:center">
+<input type="text" id="naam" placeholder="Apna Naam Likhein">
+<select id="service">
+<option>Hair Cutting - Rs. 300</option>
+<option>Beard / Shave - Rs. 200</option>
+<option>Facial - Rs. 1000</option>
+<option>VIP Package - Rs. 1200</option>
+</select>
+<input type="date" id="date">
+<input type="time" id="time">
+<br><br>
+<button class="book-btn" onclick="book()">WhatsApp Pe Booking Bhejo</button>
+<p style="font-size:14px;color:#aaa">Click karte hi WhatsApp khul jaye ga, bas Send dabana hai</p>
+</div>
+
+<h2>📍 Hamara Address & Map</h2>
+<p>Begum Kot Jumma Bazar 25 no Stop Near Ayesha Pharmacy, Shahdara, Lahore</p>
+<p>Timing: Subah 10 - Raat 11 Bajay Tak | 7 Din Khula Hai</p>
+
+<div style="padding:0 15px">
+<iframe src="https://maps.google.com/maps?q=Begum%20Kot%20Shahdara%20Lahore&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+<br>
+<a class="btn" style="background:#4285F4" href="https://www.google.com/maps/search/?api=1&query=Begum+Kot+Shahdara+Lahore" target="_blank">📍 Google Map Pe Rasta Dekhein</a>
+<br><br>
 
 <a class="btn" href="https://wa.me/923194952013">WhatsApp Pe Booking Karo</a>
 <br>
@@ -66,7 +89,19 @@ footer{background:black;padding:20px;color:#aaa}
 
 <footer>
 <p>© 2026 Mudasir Barber Shop - Begum Kot Shahdara</p>
-</<footer>
+</footer>
+
+<script>
+function book(){
+var n=document.getElementById('naam').value;
+var s=document.getElementById('service').value;
+var d=document.getElementById('date').value;
+var t=document.getElementById('time').value;
+if(n==""){alert("Pehle Apna Naam Likhein");return;}
+var msg="Assalam-o-Alaikum! Booking Chahiye%0A%0ANaam: "+n+"%0AService: "+s+"%0ADate: "+d+"%0ATime: "+t;
+window.open("https://wa.me/923227363081?text="+msg,"_blank");
+}
+</script>
 
 </body>
 </html>
